@@ -2,3 +2,5 @@
 pkgs <- c("survival", "ggplot2", "patchwork", "knitr", "scales", "testthat")
 missing <- setdiff(pkgs, rownames(installed.packages()))
 if (length(missing)) install.packages(missing, repos = "https://cloud.r-project.org")
+still_missing <- setdiff(pkgs, rownames(installed.packages()))
+if (length(still_missing)) stop("Failed to install: ", paste(still_missing, collapse = ", "))
